@@ -1,0 +1,17 @@
+.main__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 25px 40px;
+}
+.main__header input {
+    border-radius: 8px;
+    border: 1px solid gray;
+    padding-left: 7px;
+}
+.main__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
