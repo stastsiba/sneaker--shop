@@ -1,3 +1,6 @@
+button {
+    cursor: pointer;
+}
 .header__right-basket-image-btn {
     border-style: none;
     background-color: #fff;

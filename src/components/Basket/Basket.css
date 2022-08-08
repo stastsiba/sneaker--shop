@@ -42,7 +42,17 @@
     margin-top: 18px;
     max-width: 200px;
 }
-.basket__items-name-button {
+.basket__header-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.basket__button-header {
+    margin-bottom: 20px;
+    margin-right: 45px;
+}
+.basket__items-name-button, .basket__button-header {
     margin-top: 15px;
     width: 32px;
     height: 32px;

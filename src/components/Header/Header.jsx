@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Heder.css";
-
 
 const Header = (props) => {
   return (
@@ -15,7 +14,10 @@ const Header = (props) => {
         </div>
       </div>
       <div className="header__right">
-        <button className="header__right-basket-image-btn">
+        <button
+          onClick={props.onClickBasket}
+          className="header__right-basket-image-btn"
+        >
           <img
             className="header__right-basket-image"
             src="/image/basket.svg"
