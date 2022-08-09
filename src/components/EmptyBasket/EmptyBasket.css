@@ -36,10 +36,13 @@
     border-radius: 20px;
     margin-top: 35px;
     cursor: pointer;
+    padding: 0 50px;
+}
+.empty-basket__button-wrapper:hover{
+    justify-content: space-around;
 }
 .empty-basket__button-image {
-    margin-right: 25px;
-    
+    margin-right: 10px;
 }
 .empty-basket__button {
     background-color: #9DD458;
