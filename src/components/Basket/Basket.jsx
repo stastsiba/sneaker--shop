@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { Card } from "../Card/Card";
 import "./Basket.css";
+import axios from "axios";
+import { EmptyBasket } from "../EmptyBasket/EmptyBasket";
 
-export const Basket = ({ setCartItems, cartItems, onClose, items = [] }) => {
-  const delItem = () => {};
+export const Basket = ({ setCartItems, id, cartItems, onClose, items = [] }) => {
+
+  
+
+
+  const onRemoveItem = (obj, cartItems) => {
+    axios.delete(`https://62ebee40705264f263e3bbc6.mockapi.io/cart/${obj.id}`)
+    
+  };
   return (
     <div className="basket__wrapper">
       <div className="shadow__block">
@@ -14,7 +23,8 @@ export const Basket = ({ setCartItems, cartItems, onClose, items = [] }) => {
               x
             </button>
           </div>
-          <div className="basket__item">
+          {
+            cartItems.length > 0 ?           <div className="basket__item">
             <div className="basket__items">
               {cartItems.map((obj) => (
                 <div className="basket__border">
@@ -26,7 +36,7 @@ export const Basket = ({ setCartItems, cartItems, onClose, items = [] }) => {
                     </p>
                   </div>
                   <button
-                    onClick={delItem}
+                    onClick={() => onRemoveItem(obj)}
                     className="basket__items-name-button"
                   >
                     x
@@ -58,7 +68,9 @@ export const Basket = ({ setCartItems, cartItems, onClose, items = [] }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> : <EmptyBasket onClose={onClose}/>
+          }
+
         </div>
       </div>
     </div>

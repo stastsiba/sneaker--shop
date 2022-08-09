@@ -6,7 +6,6 @@ import { Basket } from "../Basket/Basket";
 import App from "../../App";
 
 const Main = (props) => {
-  console.log(props)
   const onAddToCart = (item) => {
     props.setCartItems([...props.cartItems, item]);
   };
@@ -33,7 +32,7 @@ const Main = (props) => {
           .filter((obj) => obj.name.toLowerCase().includes(searchValue))
           .map((obj, index) => (
             <Card
-            key={index}
+              key={index}
               onClickFavorite={() => {
                 console.log(1);
               }}
@@ -41,6 +40,7 @@ const Main = (props) => {
               name={obj.name}
               price={obj.price}
               imageUrl={obj.imageUrl}
+              obj={obj}
             />
           ))}
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { Basket } from "./components/Basket/Basket";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -9,14 +10,15 @@ function App(props) {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://62ebee40705264f263e3bbc6.mockapi.io/items")
-      .then((res) => {
-        return res.json();
+      axios.get('https://62ebee40705264f263e3bbc6.mockapi.io/items').then(res => {
+        setItems(res.data)
       })
-      .then((json) => {
-        setItems(json);
-      });
+      axios.get('https://62ebee40705264f263e3bbc6.mockapi.io/cart').then(res => {
+        setCartItems(res.data)
+        
+      })
   }, []);
+ 
 
   return (
     <div className="wrapper">

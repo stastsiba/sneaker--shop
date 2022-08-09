@@ -1,7 +1,9 @@
+import axios from "axios";
 import { useState } from "react";
 import "./Card.css";
 
 export const Card = ({
+  props,
   name,
   price,
   imageUrl,
@@ -14,9 +16,11 @@ export const Card = ({
     onClickFavorite({ name, price, imageUrl });
     setIsFavorite(!isFavorite);
   };
-  const clickPlusCard = () => {
+  const clickPlusCard = (props) => {
+    console.log(props.obj)
     onClickPlus({ name, price, imageUrl });
     setIsAdded(!isAdded);
+    axios.post("https://62ebee40705264f263e3bbc6.mockapi.io/cart", { name, price, imageUrl });
   };
   return (
     <div className="card">
@@ -35,7 +39,7 @@ export const Card = ({
         <div className="card__bottom">
           <div className="card__price">
             <div className="card__price-text">Цена:</div>
-            <span>{price}</span>
+            <span>{price} $</span>
           </div>
           <img
             className="card__btn-plus"

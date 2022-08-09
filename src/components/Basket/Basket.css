@@ -22,7 +22,8 @@
     flex-direction: column;
 }
 .basket__items {
-
+    max-height:600px;
+    overflow: auto;
 }
 .basket__border {
     display: flex;
