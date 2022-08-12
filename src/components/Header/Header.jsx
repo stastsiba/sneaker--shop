@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Heder.css";
 
-const Header = (props) => {
+const Header = (props, {cartItems, setCartItems}) => {
+  const totalSum = [];
   return (
     <header className="header">
       <div className="header__left">
@@ -24,7 +25,10 @@ const Header = (props) => {
             alt="basket"
           />
         </button>
-        <span className="header__right-basket-image-text">1205 $</span>
+        {props.cartItems.map((item) => (
+          console.log(totalSum.push(item.price))
+        ))}
+        <span className="header__right-basket-image-text">{totalSum.reduce((sum, cur) => sum + cur, 0)}$</span>
         <button className="header__right-basket-image-btn">
           <img
             className="header__right-like-image"

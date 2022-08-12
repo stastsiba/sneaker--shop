@@ -17,7 +17,6 @@ export const Card = ({
     setIsFavorite(!isFavorite);
   };
   const clickPlusCard = (props) => {
-    console.log(props.obj)
     onClickPlus({ name, price, imageUrl });
     setIsAdded(!isAdded);
     axios.post("https://62ebee40705264f263e3bbc6.mockapi.io/cart", { name, price, imageUrl });

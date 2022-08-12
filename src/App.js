@@ -18,7 +18,6 @@ function App(props) {
         
       })
   }, []);
- 
 
   return (
     <div className="wrapper">
@@ -29,7 +28,7 @@ function App(props) {
           onClose={() => setBasketOpened(false)}
         />
       ) : null}
-      <Header onClickBasket={() => setBasketOpened(true)} />
+      <Header cartItems= {cartItems} setCartItems= {setCartItems} onClickBasket={() => setBasketOpened(true)} />
       <Main setCartItems={setCartItems} cartItems={cartItems} items={items} />
     </div>
   );
