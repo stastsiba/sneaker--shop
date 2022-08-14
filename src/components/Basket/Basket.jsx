@@ -4,7 +4,7 @@ import "./Basket.css";
 import axios from "axios";
 import { EmptyBasket } from "../EmptyBasket/EmptyBasket";
 
-export const Basket = ({ setCartItems, cartItems, onClose}) => {
+export const Basket = ({ setCartItems, cartItems, onClose, clickPlusCard}) => {
 
   const priceItems = [];
   const onRemoveItem = (obj) => {

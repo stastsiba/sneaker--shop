@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Basket } from "../Basket/Basket";
 import "./Card.css";
 
 export const Card = ({
