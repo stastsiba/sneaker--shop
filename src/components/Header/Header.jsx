@@ -1,19 +1,22 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Heder.css";
 
-const Header = (props, {cartItems, setCartItems}) => {
+const Header = (props, { cartItems, setCartItems }) => {
   const totalSum = [];
   return (
     <header className="header">
-      <div className="header__left">
-        <img className="header__left-logo" src="/image/logo.png" alt="Logo" />
-        <div className="header__title">
-          <h2 className="header__logo-title">REACT SNEAKERS</h2>
-          <span className="header__logo-title-text">
-            Магазин лучших кроссовок
-          </span>
+      <Link to="/">
+        <div className="header__left">
+          <img className="header__left-logo" src="/image/logo.png" alt="Logo" />
+          <div className="header__title">
+            <h2 className="header__logo-title">REACT SNEAKERS</h2>
+            <span className="header__logo-title-text">
+              Магазин лучших кроссовок
+            </span>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="header__right">
         <button
           onClick={props.onClickBasket}
@@ -25,17 +28,19 @@ const Header = (props, {cartItems, setCartItems}) => {
             alt="basket"
           />
         </button>
-        {props.cartItems.map((item) => (
-          console.log(totalSum.push(item.price))
-        ))}
-        <span className="header__right-basket-image-text">{totalSum.reduce((sum, cur) => sum + cur, 0)}$</span>
-        <button className="header__right-basket-image-btn">
-          <img
-            className="header__right-like-image"
-            src="/image/like-gray.svg"
-            alt="like"
-          />
-        </button>
+        {props.cartItems.map((item) => console.log(totalSum.push(item.price)))}
+        <span className="header__right-basket-image-text">
+          {totalSum.reduce((sum, cur) => sum + cur, 0)}$
+        </span>
+        <Link to="/favorites">
+          <button className="header__right-basket-image-btn">
+            <img
+              className="header__right-like-image"
+              src="/image/like-gray.svg"
+              alt="like"
+            />
+          </button>
+        </Link>
         <button className="header__right-basket-image-btn">
           <img
             className="header__right-log-in-image"

@@ -5,22 +5,35 @@ import "./Card.css";
 
 export const Card = ({
   props,
+  id,
   name,
   price,
   imageUrl,
   onClickFavorite,
   onClickPlus,
+  favorited = false,
+  favorites,
 }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const clickFavorite = () => {
+  const [isFavorite, setIsFavorite] = useState(favorited);
+  console.log(favorites);
+  const clickFavorite = (favorites) => {
     onClickFavorite({ name, price, imageUrl });
     setIsFavorite(!isFavorite);
+    axios.post("https://62ebee40705264f263e3bbc6.mockapi.io/favorites", {
+      name,
+      price,
+      imageUrl,
+    });
   };
   const clickPlusCard = (props) => {
     onClickPlus({ name, price, imageUrl });
     setIsAdded(!isAdded);
-    axios.post("https://62ebee40705264f263e3bbc6.mockapi.io/cart", { name, price, imageUrl });
+    axios.post("https://62ebee40705264f263e3bbc6.mockapi.io/cart", {
+      name,
+      price,
+      imageUrl,
+    });
   };
   return (
     <div className="card">

@@ -32,6 +32,7 @@ const Main = (props) => {
           .filter((obj) => obj.name.toLowerCase().includes(searchValue))
           .map((obj, index) => (
             <Card
+              steFavorite={props.steFavorite}
               key={index}
               onClickFavorite={() => {
                 console.log(1);
@@ -41,6 +42,7 @@ const Main = (props) => {
               price={obj.price}
               imageUrl={obj.imageUrl}
               obj={obj}
+              favorites={props.favorites}
             />
           ))}
       </div>
